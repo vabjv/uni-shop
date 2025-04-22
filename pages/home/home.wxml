@@ -1,2 +1,42 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" circular="{{true}}">
+    <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+      <navigator class="swiper-item" url="/subpkg/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+        <image src="{{item.image_src}}"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+
+  <!-- 导航 -->
+  <view class="nav-list">
+    <view class="nav-item" wx:for="{{navList}}" wx:key="index" bind:tap="navTapHandler" data-item="{{item}}">
+      <image src="{{item.image_src}}"></image>
+    </view>
+  </view>
+
+  <!-- 楼层 -->
+  <view class="floor-list">
+    <view class="floor-item" wx:for="{{floorList}}" wx:key="index">
+      <image src="{{item.floor_title.image_src}}" class="floor-title"></image>
+      <view class="floor-img-box">
+        <!-- 左侧大图片的盒子 -->
+        <navigator class="left-img-box" url="/subpkg/pages/goods_list/goods_list?query={{item.product_list[0].name}}">
+          <image src="{{item.product_list[0].image_src}}" style="width: {{item.product_list[0].image_width}}rpx" mode="widthFix"></image>
+        </navigator>
+        <!-- 右侧 4 个小图片的盒子 -->
+        <view class="right-img-box">
+          <navigator class="right-img-item" wx:for="{{item.product_list}}" wx:key="index" url="/subpkg/pages/goods_list/goods_list?query={{item.name}}">
+          <!-- wx:for 和 wx:if 不能放一起使用 -->
+            <view wx:if="{{index != 0}}">
+              <image src="{{item.image_src}}" mode="widthFix" :style="width: {{item.image_width}}rpx"></image>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 传参部分还不知道是否解决 -->

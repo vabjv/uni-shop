@@ -5,6 +5,15 @@
     "pages/cart/cart",
     "pages/my/my"
   ],
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        "pages/goods_detail/goods_detail",
+        "pages/goods_list/goods_list"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-shop",
@@ -12,29 +21,33 @@
   },
   "tabBar": {
     "selectedColor": "#C00000",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "images/tab_image/home.png",
         "selectedIconPath": "images/tab_image/home_active.png"
-      }, {
+      },
+      {
         "pagePath": "pages/cate/cate",
         "text": "分类",
         "iconPath": "images/tab_image/cate.png",
         "selectedIconPath": "images/tab_image/cate_active.png"
-      }, {
+      },
+      {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
         "iconPath": "images/tab_image/cart.png",
         "selectedIconPath": "images/tab_image/cart_active.png"
-      }, {
+      },
+      {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/tab_image/my.png",
         "selectedIconPath": "images/tab_image/my_active.png"
       }
     ]
-  }, 
+  },
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

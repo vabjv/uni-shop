@@ -5,14 +5,72 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    swiperList: [],
+    navList: [],
+    floorList: []
   },
+
+  getSwiperList: function() {
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+      method: "GET",
+      success: (res) => {
+        this.setData({
+          swiperList: res.data.message
+        });
+      }, 
+      fail: () => {
+        wx.$showMsg()
+      }
+    })
+  },
+
+  getNavList: function() {
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+      method: 'GET',
+      success: (res) => {
+        this.setData({
+          navList: res.data.message
+        });
+      }, 
+      fail: () => {
+        wx.$showMsg();
+      }
+    })
+  }, 
+
+  navTapHandler: function(e) {
+    if (e.currentTarget.dataset.item.name == "分类") {
+      wx.switchTab({
+        url: '/pages/cate/cate',
+      })
+    }
+  },
+
+  getFloorList: function() {
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',
+      method: 'GET',
+      success: (res) => {
+        
+        this.setData({
+          floorList: res.data.message
+        });
+      }, 
+      fail: () => {
+        wx.$showMsg();
+      }
+    })
+  }, 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad() {
+    this.getSwiperList();
+    this.getNavList();
+    this.getFloorList();
   },
 
   /**
