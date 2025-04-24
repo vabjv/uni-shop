@@ -5,14 +5,55 @@ Page({
    * 页面的初始数据
    */
   data: {
+    wh: 0,
+    active: 0, //当前选中项的下标
+    scrollTop: 0,
+    cateList: [], 
+    cateList2: []
+  },
 
+  getCateList: function() {
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/categories',
+      method: 'GET',
+      success: (res) => {
+        this.setData({
+          cateList: res.data.message,
+          cateList2: res.data.message[0].children
+        });
+      }, 
+      fail: () => {
+        wx.$showMsg();
+      }
+    })
+  },
+
+  cateChanged: function(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      active: index,
+      scrollTop: 0,
+      cateList2: this.data.cateList[index].children //this后面一定要加data
+    });
+  }, 
+
+  cateTapHandler: function(e) {
+    const item = e.currentTarget.dataset.item;
+    console.log(e);
+    wx.navigateTo({
+      url: `/subpkg/pages/goods_list/goods_list?cid=${item.cat_id}`,
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad() {
+    const sysInfo = wx.getWindowInfo();
+    this.setData({
+      wh: sysInfo.windowHeight
+    });
+    this.getCateList();
   },
 
   /**

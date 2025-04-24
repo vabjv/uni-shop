@@ -1,1 +1,63 @@
 /* pages/cate/cate.wxss */
+.scroll-view-container {
+  display: flex;
+}
+
+.scroll-view-container .left-scroll-view {
+  width: 120px;
+}
+
+.scroll-view-container .left-scroll-view .left-scroll-view-item {
+  line-height: 60px;
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* 激活项的样式 */
+.scroll-view-container .left-scroll-view .left-scroll-view-item.active {
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* 渲染激活项左侧的红色指示边线 */
+.scroll-view-container .left-scroll-view .left-scroll-view-item.active::before {
+  content: ' ';
+  display: block;
+  width: 3px;
+  height: 30px;
+  background-color: #c00000;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-scroll-view-title {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.right-scroll-view-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.right-scroll-view-item{
+  width: 33.33%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-scroll-view-item image{
+  width: 60px;
+  height: 60px;
+}
+
+.right-scroll-view-item text{
+  font-size: 12px;
+}
