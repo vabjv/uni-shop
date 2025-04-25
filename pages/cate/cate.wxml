@@ -1,4 +1,6 @@
 <!--pages/cate/cate.wxml-->
+<my_search bgColor="#ff0000" radius="15" bind:gotoSearch="gotoSearch"></my_search>
+
 <view>
   <view class="scroll-view-container">
     <!-- 左侧的滚动视图区域 -->

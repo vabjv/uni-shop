@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my_search": "/components/my_search/my_search"
+  }
 }

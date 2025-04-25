@@ -1,0 +1,36 @@
+<!--subpkg/pages/search/search.wxml-->
+<view class="search-box">
+  <!-- 使用 uni-ui 提供的搜索组件 -->
+  <van-search
+  value="{{input}}"
+  placeholder="搜索"
+  shape="round"
+  input-align="left"
+  bind:search="onSearch"
+  bind:change="onChange"
+  class="custom-search"
+  />
+</view>
+
+<view class="sugg-list" wx:if="{{searchLists.length !== 0}}">
+  <view class="sugg-item" wx:for="{{searchLists}}" wx:key="index" bind:tap="gotoDetail" data-id="{{item.goods_id}}">
+    <view class="goods-name">{{item.goods_name}}</view>
+    <icon type="arrowright" size="16"></icon>
+  </view>
+</view>
+
+<view class="history-box" wx:else>
+  <!-- 标题区域 -->
+  <view class="history-title">
+    <text>搜索历史</text>
+    <icon type="clear" size="17" bindtap="clearHistory"></icon>
+  </view>
+  <!-- 列表区域 -->
+  <view class="history-list">
+    <block wx:for="{{reverseHistory}}" wx:key="index">
+      <view class="history-tag" bind:tap="searchHistory" data-history="{{item}}">{{item}}</view>
+    </block>
+  </view>
+</view>
+
+

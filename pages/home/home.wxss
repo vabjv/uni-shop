@@ -1,4 +1,10 @@
 /* pages/home/home.wxss */
+.search_box {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
 swiper {
   height: 330rpx;
 }

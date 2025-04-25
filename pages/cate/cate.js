@@ -12,6 +12,12 @@ Page({
     cateList2: []
   },
 
+  gotoSearch: function() {
+    wx.navigateTo({
+      url: '/subpkg/pages/search/search',
+    })
+  },
+
   getCateList: function() {
     wx.request({
       url: 'https://api-hmugo-web.itheima.net/api/public/v1/categories',

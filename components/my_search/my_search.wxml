@@ -1,0 +1,8 @@
+<!--components/my_search/my_search.wxml-->
+<view class="my-search-container" style="background-color: {{bgColor}};">
+    <!-- 使用 view 组件模拟 input 输入框的样式 -->
+    <view class="my-search-box" style="border-radius: {{radius}}px;" bind:tap="search">
+      <icon type="search" size="17"></icon>
+      <text class="placeholder">搜索</text>
+    </view>
+</view>

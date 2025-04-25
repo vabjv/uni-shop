@@ -1,4 +1,8 @@
 <!--pages/home/home.wxml-->
+<view class="search_box">
+  <my_search bgColor="#ff0000" radius="15" bind:gotoSearch="gotoSearch"></my_search>
+</view>
+
 <view>
   <!-- 轮播图 -->
   <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" circular="{{true}}">

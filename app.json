@@ -10,7 +10,8 @@
       "root": "subpkg",
       "pages": [
         "pages/goods_detail/goods_detail",
-        "pages/goods_list/goods_list"
+        "pages/goods_list/goods_list",
+        "pages/search/search"
       ]
     }
   ],
@@ -48,7 +49,6 @@
       }
     ]
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

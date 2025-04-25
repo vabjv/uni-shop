@@ -10,6 +10,12 @@ Page({
     floorList: []
   },
 
+  gotoSearch: function() {
+    wx.navigateTo({
+      url: '/subpkg/pages/search/search',
+    })
+  },
+
   getSwiperList: function() {
     wx.request({
       url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
