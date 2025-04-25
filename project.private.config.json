@@ -3,5 +3,6 @@
   "projectname": "uni-shop",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "trial"
 }
