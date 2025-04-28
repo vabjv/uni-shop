@@ -45,7 +45,6 @@ Page({
 
   cateTapHandler: function(e) {
     const item = e.currentTarget.dataset.item;
-    console.log(e);
     wx.navigateTo({
       url: `/subpkg/pages/goods_list/goods_list?cid=${item.cat_id}`,
     })

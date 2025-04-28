@@ -1,2 +1,7 @@
-<!--subpkg/pages/goods_list/goods_list.wxml-->
-<text>subpkg/pages/goods_list/goods_list.wxml</text>
+<view>
+    <view class="goods-list">
+      <view wx:for="{{goodsList}}" wx:key="goods_id" wx:for-item="goods" bind:tap="gotoDetail" data-goods="{{goods}}">
+        <my_goods goods="{{goods}}"></my_goods>
+      </view>
+    </view>
+</view>
