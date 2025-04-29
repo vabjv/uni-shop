@@ -5,14 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    goods_detail: {},
+    info: 3
+  },
+
+  getGoodsDetail: function(goods_id){
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/goods/detail',
+      method: 'Get',
+      data: {
+        goods_id
+      },
+      success: (res) => {
+        res.data.message.goods_introduce = res.data.message.goods_introduce.replace(/<img /g, '<img style="display:block;" ').replace(/webp/g, 'jpg')
+        this.setData({
+          goods_detail: res.data.message
+        })
+      },
+      fail: () => {
+        wx.$showMsg()
+      }
+    })
+  },
+
+  preview: function(e) {
+    const index = e.currentTarget.dataset.index
+    wx.previewImage({
+      current: index,
+      urls: this.data.goods_detail.pics.map(x => x.pics_big),
+    })
+  },
+
+  onLeftClick: function(e) {
+    if (e.currentTarget.dataset.index) {
+      wx.switchTab({
+        url: '/pages/cart/cart',
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
+    const goods_id = options.goods_id
+    this.getGoodsDetail(goods_id)
   },
 
   /**

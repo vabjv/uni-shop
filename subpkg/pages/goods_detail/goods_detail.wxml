@@ -1,1 +1,60 @@
 <!--subpkg/pages/goods_detail/goods_detail.wxml-->
+<view wx:if="{{goods_detail.goods_name}}">
+  <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
+    <swiper-item wx:for="{{goods_detail.pics}}" wx:key="pics_id">
+      <image src="{{item.pics_big}}" bind:tap="preview" data-index="{{pics_id}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <rich-text nodes="{{goods_detail.goods_introduce}}"></rich-text>
+
+  <!-- 商品信息区域 -->
+  <view class="goods-info-box">
+    <!-- 商品价格 -->
+    <view class="price">￥{{goods_detail.goods_price}}</view>
+    <!-- 信息主体区域 -->
+    <view class="goods-info-body">
+      <!-- 商品名称 -->
+      <view class="goods-name">{{goods_detail.goods_name}}</view>
+      <!-- 收藏 -->
+      <!-- <view class="favi">
+        <icon type="star" size="18" color="gray"></icon>
+        <text>收藏</text>
+      </view> -->
+    </view>
+    <!-- 运费 -->
+    <view class="yf">快递：免运费</view>
+  </view>
+
+  <view class="goods_nav">
+    <van-goods-action>
+      <!-- 左侧图标按钮 -->
+      <van-goods-action-icon
+        icon="shop-o"
+        text="店铺"
+        bind:click="onLeftClick"
+        data-index="0"
+      />
+      <van-goods-action-icon
+        icon="cart-o"
+        text="购物车"
+        info="{{info}}"
+        bind:click="onLeftClick"
+        data-index="1"
+      />
+
+      <!-- 右侧操作按钮 -->
+      <van-goods-action-button
+        text="加入购物车"
+        type="warning"
+        bind:click="onRightClick"
+      />
+      <van-goods-action-button
+        text="立即购买"
+        type="danger"
+        bind:click="onRightClick"
+      />
+    </van-goods-action>
+  </view>
+</view>
+

@@ -9,9 +9,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "subpkg/pages/goods_list/goods_list",
-          "pathName": "subpkg/pages/goods_list/goods_list",
-          "query": "",
+          "name": "subpkg/pages/goods_detail/goods_detail",
+          "pathName": "subpkg/pages/goods_detail/goods_detail",
+          "query": "goods_id=355",
           "launchMode": "default",
           "scene": null
         }
